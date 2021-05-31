@@ -16,9 +16,10 @@
     <%- include('./components/header.ejs'); %>
   </header>
 
-  <div class="container">
-    <h1>Welcome to the <%= title %> page</h1>
-  </div>
+  <!-- Main Content Area -->
+  <main>
+    <%- include('./content/' + page + '.ejs'); %>
+  </main>
   
   <!-- Bottom Nav -->
   <footer>
