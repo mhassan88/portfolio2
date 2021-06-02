@@ -78,6 +78,11 @@
     "@types/qs" "*"
     "@types/serve-static" "*"
 
+"@types/html@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@types/html/-/html-1.0.0.tgz#bc3381d8dc7c935ee7fa5cd673d6917fc2edead3"
+  integrity sha512-STdp3UEEcWYz2uhpLMfXzm8KW4XiQeofY7N9rp9s9E0Y7cXU9sYtH03lnJntTY62q9C2HALhcy9xQPdnRS/gMQ==
+
 "@types/http-errors@^1.8.0":
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/@types/http-errors/-/http-errors-1.8.0.tgz#682477dbbbd07cd032731cb3b0e7eaee3d026b69"
