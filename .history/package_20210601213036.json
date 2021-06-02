@@ -1,11 +1,11 @@
 {
-  "name": "portfolioproject",
+  "name": "Portfolio Project",
   "version": "0.0.2",
   "private": true,
   "description": "Portfolio Project",
   "main": "index.js",
   "repository": "https://github.com/mhassan88/portfolio",
-  "author": "Muhammad Hassan",
+  "author": "Tom Tsiliopoulos <tsiliopoulos@hotmail.com>",
   "license": "MIT",
   "scripts": {
     "start": "node index.js"

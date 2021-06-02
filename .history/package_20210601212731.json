@@ -1,11 +1,11 @@
 {
-  "name": "portfolioproject",
+  "name": "comp229-m2021-week4",
   "version": "0.0.2",
   "private": true,
-  "description": "Portfolio Project",
+  "description": "Demo Project for COMP229 - Week 4",
   "main": "index.js",
-  "repository": "https://github.com/mhassan88/portfolio",
-  "author": "Muhammad Hassan",
+  "repository": "https://github.com/CentennialCollege/COMP229-M2021-Week4b.git",
+  "author": "Tom Tsiliopoulos <tsiliopoulos@hotmail.com>",
   "license": "MIT",
   "scripts": {
     "start": "node index.js"
