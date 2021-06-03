@@ -1,0 +1,22 @@
+/* your custom css goes here */
+
+.top-margin {
+    margin-top: 100px;
+}
+
+.left-margin {
+    margin-left: 100px;
+}
+
+.bottom-margin {
+    margin-bottom: 200px;
+}
+
+.bottom-right {
+    margin-bottom: 60px;
+    margin-right: 100px;
+}
+
+.justify {
+    text-align: justify;
+}

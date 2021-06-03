@@ -1,0 +1,50 @@
+<div class="container bottom-margin">
+    <h1 class="display-5">Contact Me</h1>
+
+    <div class="card">
+        <div class="card-header"><i class="fas fa-mobile"></i> Contact Number</div>
+        <div class="card-body"> 647-390-3271</div>
+    </div>
+    <div class="card panel-primary">
+        <div class="card-header"><i class="fas fa-envelope-open-text"></i> Email Address</div>
+        <div class="card-body"> m.hassan.88@outlook.com</div>
+    </div>
+    <div class="card panel-primary">
+        <div class="card-header"><i class="fas fa-sms"></i> Message Me</div>
+        <div class="card-body">
+            <form>
+                <div class="mb-3">
+                    <label for="fname" class="form-label">First Name</label>
+                    <input type="text" class="form-control" id="fname" placeholder="">
+                    
+                </div>
+                <div class="mb-3">
+                    <label for="lname" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="lname" placeholder="">
+                    
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                    <div id="emailHelp" class="form-text">Provide an email address to contact back.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="contact" class="form-label">Contact No</label>
+                    <input type="text" class="form-control" id="contact" placeholder="(xxx) xxx-xxxx">
+                    <div id="emailHelp" class="form-text">Number to contact.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="Textarea" class="form-label">Message To Send</label>
+                    <textarea class="form-control" id="Textarea" rows="3"></textarea>
+                </div>
+                <button id="myButton" click = "btnClicked" type="button" class="btn btn-primary">Send Message</button>
+            <form>
+        </div>
+    </div>
+    <script>
+        //Event listner for send message button
+        function btnClicked: void = (){
+            console.log("clicked");
+        }
+    </script>
+</div>
