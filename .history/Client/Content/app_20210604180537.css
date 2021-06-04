@@ -1,0 +1,40 @@
+/*      app.css Custom CSS File
+        Name: Muhammad Hassan 
+        ID: 301178235
+        Date: 03 June 2021
+*/
+
+
+/*Top Margin to apply on some components*/
+
+.top-margin {
+    margin-top: 100px;
+}
+
+
+/*left Margin to apply on some components*/
+
+.left-margin {
+    margin-left: 100px;
+}
+
+
+/*Bottom Margin to apply to because of footer*/
+
+.bottom-margin {
+    margin-bottom: 50px;
+}
+
+
+/*Text justify*/
+
+.justify {
+    text-align: justify;
+}
+
+
+/*Background color*/
+
+.bg {
+    background-color: "bg-gradient-secondary";
+}
