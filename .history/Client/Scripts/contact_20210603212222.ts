@@ -35,7 +35,7 @@
         },
         function (data) {}
       );
-      //redirecting to homepage
+
       window.location.replace("/");
     });
   }

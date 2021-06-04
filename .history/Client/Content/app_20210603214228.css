@@ -4,29 +4,17 @@
         Date: 03 June 2021
 */
 
-
-/*Top Margin to apply on some components*/
-
 .top-margin {
     margin-top: 100px;
 }
-
-
-/*left Margin to apply on some components*/
 
 .left-margin {
     margin-left: 100px;
 }
 
-
-/*Bottom Margin to apply to because of footer*/
-
 .bottom-margin {
-    margin-bottom: 50px;
+    margin-bottom: 60px;
 }
-
-
-/*Text justify*/
 
 .justify {
     text-align: justify;

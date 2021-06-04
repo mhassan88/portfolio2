@@ -1,4 +1,4 @@
-/*    index.ts
+/*    app.ts
       Name: Muhammad Hassan 
       ID: 301178235
       Date: 03 June 2021
@@ -36,7 +36,7 @@ router.get("/services", function (req, res, next) {
 router.get("/contact", function (req, res, next) {
   res.render("./content/contact.ejs", { title: "Contact Us", page: "contact" });
 });
-/* Post message route for contact page */
+/* Post message from contact page */
 router.post("/contact", function (req, res, next) {
   //got values, need to store to db or file at later stage
   let firstName: string = req.body.firstName;

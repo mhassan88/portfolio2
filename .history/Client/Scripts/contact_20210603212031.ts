@@ -6,7 +6,6 @@
 "use strict";
 
 (function () {
-  //Click button event handler function
   function clickButton() {
     const sendButton = document.getElementById("myButton");
     sendButton.addEventListener("click", () => {
@@ -23,7 +22,6 @@
       let message: string = (
         document.getElementById("Textarea") as HTMLTextAreaElement
       ).value;
-      //post request to send the form data to server
       $.post(
         "http://127.0.0.1:3000/contact",
         {
@@ -35,7 +33,7 @@
         },
         function (data) {}
       );
-      //redirecting to homepage
+
       window.location.replace("/");
     });
   }
