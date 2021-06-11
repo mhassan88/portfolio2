@@ -31,7 +31,9 @@ router.get("/projects", function (req, res, next) {
 router.get("/services", function (req, res, next) {
   res.render("index", { title: "My Services", page: "services" });
 });
-
+router.get("/test", function (req, res, next) {
+  res.render("./content/contact.ejs", { title: "Contact Me", page: "contact" });
+});
 /* GET contact page. */
 router.get("/contact", function (req, res, next) {
   res.render("./content/contact.ejs", { title: "Contact Me", page: "contact" });

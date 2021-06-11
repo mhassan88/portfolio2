@@ -19,7 +19,7 @@ router.get("/home", function (req, res, next) {
 
 /* GET about page. */
 router.get("/about", function (req, res, next) {
-  res.json({ title: "About Me", abc: "about" });
+  res.send({ title: "About Me", new: "about" });
 });
 
 /* GET projects page. */
@@ -36,7 +36,6 @@ router.get("/services", function (req, res, next) {
 router.get("/contact", function (req, res, next) {
   res.render("./content/contact.ejs", { title: "Contact Me", page: "contact" });
 });
-
 /* Post message route for contact page */
 router.post("/contact", function (req, res, next) {
   //got values, need to store to db or file at later stage
