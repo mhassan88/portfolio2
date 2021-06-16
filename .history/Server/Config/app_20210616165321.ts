@@ -45,6 +45,24 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "../../Client")));
 app.use(express.static(path.join(__dirname, "../../node_modules")));
 
+app.use(function (
+  req: express.Request,
+  res: express.Response,
+  next: express.NextFunction
+) {
+  console.log("before calling middle ware1");
+  next();
+  console.log("After calling middle ware1");
+});
+app.use(function (
+  req: express.Request,
+  res: express.Response,
+  next: express.NextFunction
+) {
+  console.log("before calling middle ware2");
+  next();
+  console.log("After calling middle ware2");
+});
 app.use("/", indexRouter);
 
 // catch 404 and forward to error handler

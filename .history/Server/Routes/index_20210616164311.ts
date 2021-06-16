@@ -5,11 +5,12 @@
 */
 import express from "express";
 const router = express.Router();
-import { DisplayHomePage } from "../Controllers";
 export default router;
 
 /* GET home page. */
-router.get("/", DisplayHomePage);
+router.get("/", function (req, res, next) {
+  res.render("index", { title: "Home", page: "home" });
+});
 
 /* GET home page. */
 router.get("/home", function (req, res, next) {
@@ -18,7 +19,7 @@ router.get("/home", function (req, res, next) {
 
 /* GET about page. */
 router.get("/about", function (req, res, next) {
-  res.render("index", { title: "About Me", page: "about" });
+  res.render("index", { title: "About Me", abc: "about" });
 });
 
 /* GET projects page. */
