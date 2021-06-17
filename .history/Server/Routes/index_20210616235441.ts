@@ -11,7 +11,6 @@ import {
   DisplayHomePage,
   DisplayProjectsPage,
   DisplayServicesPage,
-  DisplayTestPage,
   PostMessageController,
 } from "../Controllers";
 export default router;

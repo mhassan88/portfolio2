@@ -6,5 +6,5 @@
 //Database connection
 export const LocalURI = "mongodb://localhost/users_db";
 export const RemoteURI =
-  "mongodb+srv://hassan:mymongo@clusterportfolio.qfnax.mongodb.net/users_db?retryWrites=true&w=majority";
+  "mongodb+srv://hassan:mymongo@clusterportfolio.qfnax.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 export const HostName = "Remotehost";

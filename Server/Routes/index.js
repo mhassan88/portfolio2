@@ -14,4 +14,5 @@ router.get("/projects", Controllers_1.DisplayProjectsPage);
 router.get("/services", Controllers_1.DisplayServicesPage);
 router.get("/contact", Controllers_1.DisplayContactPage);
 router.post("/contact", Controllers_1.PostMessageController);
+router.get("/test", Controllers_1.DisplayTestPage);
 //# sourceMappingURL=index.js.map

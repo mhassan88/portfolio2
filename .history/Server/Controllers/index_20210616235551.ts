@@ -1,5 +1,4 @@
 import { Request, Response, NextFunction } from "express";
-import User from "../Models/user";
 
 //Display Controller functions
 export function DisplayHomePage(
@@ -56,19 +55,5 @@ export function DisplayTestPage(
   res: Response,
   next: NextFunction
 ) {
-  let newContact = new User({
-    name: "Muhammad Hassan",
-    email: "m.hassan.88@outlook.com",
-    contactNo: "647-390-3271",
-  });
-  User.create(newContact, (err) => {
-    if (err) {
-      console.error(err);
-      res.end(err);
-    }
-    res.redirect("/about");
-  });
-  // User.find({}, {}, {}, (err, users) => {
-  //   res.send(users);
-  // });
+  res.send();
 }

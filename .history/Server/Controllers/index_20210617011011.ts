@@ -56,19 +56,7 @@ export function DisplayTestPage(
   res: Response,
   next: NextFunction
 ) {
-  let newContact = new User({
-    name: "Muhammad Hassan",
-    email: "m.hassan.88@outlook.com",
-    contactNo: "647-390-3271",
+  User.find((err, users) => {
+    res.json(users);
   });
-  User.create(newContact, (err) => {
-    if (err) {
-      console.error(err);
-      res.end(err);
-    }
-    res.redirect("/about");
-  });
-  // User.find({}, {}, {}, (err, users) => {
-  //   res.send(users);
-  // });
 }

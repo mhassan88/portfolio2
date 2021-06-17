@@ -1,6 +1,10 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PostMessageController = exports.DisplayContactPage = exports.DisplayServicesPage = exports.DisplayProjectsPage = exports.DisplayAboutPage = exports.DisplayHomePage = void 0;
+exports.DisplayTestPage = exports.PostMessageController = exports.DisplayContactPage = exports.DisplayServicesPage = exports.DisplayProjectsPage = exports.DisplayAboutPage = exports.DisplayHomePage = void 0;
+const user_1 = __importDefault(require("../Models/user"));
 function DisplayHomePage(req, res, next) {
     res.render("index", { title: "Home", page: "home" });
 }
@@ -29,4 +33,19 @@ function PostMessageController(req, res, next) {
     let message = req.body.message;
 }
 exports.PostMessageController = PostMessageController;
+function DisplayTestPage(req, res, next) {
+    let newContact = new user_1.default({
+        name: "Muhammad Hassan",
+        email: "m.hassan.88@outlook.com",
+        contactNo: "647-390-3271",
+    });
+    user_1.default.create(newContact, (err) => {
+        if (err) {
+            console.error(err);
+            res.end(err);
+        }
+        res.redirect("/about");
+    });
+}
+exports.DisplayTestPage = DisplayTestPage;
 //# sourceMappingURL=index.js.map
