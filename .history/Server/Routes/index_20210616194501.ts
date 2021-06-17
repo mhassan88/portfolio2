@@ -11,7 +11,6 @@ import {
   DisplayHomePage,
   DisplayProjectsPage,
   DisplayServicesPage,
-  PostMessageController,
 } from "../Controllers";
 export default router;
 
@@ -34,4 +33,11 @@ router.get("/services", DisplayServicesPage);
 router.get("/contact", DisplayContactPage);
 
 /* Post message route for contact page */
-router.post("/contact", PostMessageController);
+router.post("/contact", function (req, res, next) {
+  //got values, need to store to db or file at later stage
+  let firstName: string = req.body.firstName;
+  let lastName: string = req.body.lastName;
+  let email: string = req.body.email;
+  let phone: string = req.body.phone;
+  let message: string = req.body.message;
+});

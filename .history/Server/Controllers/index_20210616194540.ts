@@ -38,7 +38,9 @@ export function DisplayContactPage(
   res.render("./content/contact.ejs", { title: "Contact Me", page: "contact" });
 }
 
-export function PostMessage(req: Request, res: Response, next: NextFunction) {
+function (req: Request,
+  res: Response,
+  next: NextFunction) {
   //got values, need to store to db or file at later stage
   let firstName: string = req.body.firstName;
   let lastName: string = req.body.lastName;
