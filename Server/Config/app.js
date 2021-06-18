@@ -29,6 +29,7 @@ const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const morgan_1 = __importDefault(require("morgan"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const index_1 = __importDefault(require("../Routes/index"));
+const contacts_1 = __importDefault(require("../Routes/contacts"));
 const app = express_1.default();
 exports.default = app;
 const DBConfig = __importStar(require("./db"));
@@ -52,6 +53,7 @@ app.use(cookie_parser_1.default());
 app.use(express_1.default.static(path_1.default.join(__dirname, "../../Client")));
 app.use(express_1.default.static(path_1.default.join(__dirname, "../../node_modules")));
 app.use("/", index_1.default);
+app.use("/contactlist", contacts_1.default);
 app.use(function (req, res, next) {
     next(http_errors_1.default(404));
 });
