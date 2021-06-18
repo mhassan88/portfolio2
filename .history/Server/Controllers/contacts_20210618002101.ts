@@ -55,17 +55,22 @@ export function HandleDeleteContact(
   req: Request,
   res: Response,
   next: NextFunction
-) {}
+) {
+  Contact.find((err, contacts) => {
+    if (err) {
+      console.error("Error occurred");
+      res.end(err);
+    }
+    res.render("index", {
+      title: "Contacts List",
+      page: "contacts",
+      contactList: contacts,
+    });
+  });
+}
 
-//Process edit contact
+//Post handle /contact-list/edit/:id
 export function HandleEditContact(
-  req: Request,
-  res: Response,
-  next: NextFunction
-) {}
-
-//Process create contact
-export function HandleCreateContact(
   req: Request,
   res: Response,
   next: NextFunction

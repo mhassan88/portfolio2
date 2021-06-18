@@ -1,7 +1,13 @@
 import { Request, Response, NextFunction } from "express";
 import Contact from "../Models/contacts";
 
-//Display contact list page (Read in CRUD)
+export function DisplayCreateContactPage(
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {}
+
+//Display contact list page
 export function DisplayContactListPage(
   req: Request,
   res: Response,
@@ -13,7 +19,7 @@ export function DisplayContactListPage(
       res.end(err);
     }
     res.render("index", {
-      title: "List of Contacts",
+      title: "Contacts List",
       page: "contacts",
       contactList: contacts,
     });
@@ -36,37 +42,40 @@ export function DisplayContactListPage(
   // });
 }
 
-// Display (C)reate contact page
-export function DisplayCreateContactPage(
-  req: Request,
-  res: Response,
-  next: NextFunction
-) {}
-
-//Display (E)dit contact page
+//Display edit contact page
 export function DisplayEditContactPage(
   req: Request,
   res: Response,
   next: NextFunction
-) {}
+) {
+  Contact.find((err, contacts) => {
+    if (err) {
+      console.error("Error occurred");
+      res.end(err);
+    }
+    res.render("index", {
+      title: "Contacts List",
+      page: "contacts",
+      contactList: contacts,
+    });
+  });
+}
 
-//Process (D)elete Contact
+//Handle Delete Contact
 export function HandleDeleteContact(
   req: Request,
   res: Response,
   next: NextFunction
-) {}
-
-//Process edit contact
-export function HandleEditContact(
-  req: Request,
-  res: Response,
-  next: NextFunction
-) {}
-
-//Process create contact
-export function HandleCreateContact(
-  req: Request,
-  res: Response,
-  next: NextFunction
-) {}
+) {
+  Contact.find((err, contacts) => {
+    if (err) {
+      console.error("Error occurred");
+      res.end(err);
+    }
+    res.render("index", {
+      title: "Contacts List",
+      page: "contacts",
+      contactList: contacts,
+    });
+  });
+}

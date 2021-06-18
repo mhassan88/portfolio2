@@ -57,15 +57,8 @@ export function HandleDeleteContact(
   next: NextFunction
 ) {}
 
-//Process edit contact
+//Post handle /contact-list/edit/:id
 export function HandleEditContact(
-  req: Request,
-  res: Response,
-  next: NextFunction
-) {}
-
-//Process create contact
-export function HandleCreateContact(
   req: Request,
   res: Response,
   next: NextFunction

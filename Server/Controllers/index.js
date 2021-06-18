@@ -1,10 +1,6 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DisplayContactListPage = exports.PostMessageController = exports.DisplayContactPage = exports.DisplayServicesPage = exports.DisplayProjectsPage = exports.DisplayAboutPage = exports.DisplayHomePage = void 0;
-const contacts_1 = __importDefault(require("../Models/contacts"));
+exports.PostMessageController = exports.DisplayContactPage = exports.DisplayServicesPage = exports.DisplayProjectsPage = exports.DisplayAboutPage = exports.DisplayHomePage = void 0;
 function DisplayHomePage(req, res, next) {
     res.render("index", { title: "Home", page: "home" });
 }
@@ -33,18 +29,4 @@ function PostMessageController(req, res, next) {
     let message = req.body.message;
 }
 exports.PostMessageController = PostMessageController;
-function DisplayContactListPage(req, res, next) {
-    contacts_1.default.find((err, contacts) => {
-        if (err) {
-            console.error("Error occurred");
-            res.end(err);
-        }
-        res.render("index", {
-            title: "Contacts List",
-            page: "contacts",
-            contactList: contacts,
-        });
-    });
-}
-exports.DisplayContactListPage = DisplayContactListPage;
 //# sourceMappingURL=index.js.map

@@ -4,27 +4,19 @@ import {
   DisplayEditContactPage,
   DisplayContactListPage,
   HandleDeleteContact,
-  HandleCreateContact,
-  HandleEditContact,
 } from "../Controllers/contacts";
 
 const router = Router();
 export default router;
 
-/* Get /contacts-list page */
+/* Get contacts list page */
 router.get("/", DisplayContactListPage);
 
-/* Get /contacts-list/create page */
+/* Get Route for create new contact page */
 router.get("/create", DisplayCreateContactPage);
 
-/* Get /contacts-list/edit page */
+/* Get Route for edit item */
 router.get("/edit/:id", DisplayEditContactPage);
 
-/* Get /contacts-list/delete */
+/* Get Route for delete item */
 router.get("/delete/:id", HandleDeleteContact);
-
-/* Post /contacts-list/create page */
-router.post("/create", HandleCreateContact);
-
-/* Post /contacts-list/edit page */
-router.post("/edit/:id", HandleEditContact);

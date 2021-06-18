@@ -4,8 +4,6 @@ import {
   DisplayEditContactPage,
   DisplayContactListPage,
   HandleDeleteContact,
-  HandleCreateContact,
-  HandleEditContact,
 } from "../Controllers/contacts";
 
 const router = Router();
@@ -24,7 +22,7 @@ router.get("/edit/:id", DisplayEditContactPage);
 router.get("/delete/:id", HandleDeleteContact);
 
 /* Post /contacts-list/create page */
-router.post("/create", HandleCreateContact);
+router.post("/create", HandleCreateContactPage);
 
 /* Post /contacts-list/edit page */
-router.post("/edit/:id", HandleEditContact);
+router.post("/edit/:id", HandleEditContactPage);
