@@ -1,5 +1,4 @@
 import { Request, Response, NextFunction } from "express";
-import passport from "passport";
 import User from "../Models/user";
 
 //Display Controller functions
@@ -98,9 +97,8 @@ export function PostRegisterController(
       return res.redirect("/register");
     }
 
-    //after successful registration - login the user
-    return passport.authenticate("local")(req, res, () => {
-      return res.redirect("/contacts-list");
-    });
+    // after successful registration - login the user
+    // return passport.authenticate("local")(req, res, () => {
+    return res.redirect("/contacts-list");
   });
 }

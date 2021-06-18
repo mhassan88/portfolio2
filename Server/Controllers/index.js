@@ -1,6 +1,11 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PostRegisterController = exports.PostLoginController = exports.PostMessageController = exports.DisplayRegisterPage = exports.DisplayLoginPage = exports.DisplayContactPage = exports.DisplayServicesPage = exports.DisplayProjectsPage = exports.DisplayAboutPage = exports.DisplayHomePage = void 0;
+const passport_1 = __importDefault(require("passport"));
+const user_1 = __importDefault(require("../Models/user"));
 function DisplayHomePage(req, res, next) {
     res.render("index", { title: "Home", page: "home" });
 }
@@ -39,6 +44,24 @@ function PostMessageController(req, res, next) {
 exports.PostMessageController = PostMessageController;
 function PostLoginController(req, res, next) { }
 exports.PostLoginController = PostLoginController;
-function PostRegisterController(req, res, next) { }
+function PostRegisterController(req, res, next) {
+    let newUser = new user_1.default({
+        username: req.body.username,
+        email: req.body.emailAddress,
+        displayName: req.body.FirstName + " " + req.body.LastName,
+    });
+    user_1.default.register(newUser, req.body.password, (err) => {
+        if (err) {
+            console.error("Error: Inserting New User");
+            if (err.name == "UserExistsError") {
+                console.error("Error: User Already Exists");
+            }
+            return res.redirect("/register");
+        }
+        return passport_1.default.authenticate("local")(req, res, () => {
+            return res.redirect("/contacts-list");
+        });
+    });
+}
 exports.PostRegisterController = PostRegisterController;
 //# sourceMappingURL=index.js.map

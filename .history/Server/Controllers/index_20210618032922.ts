@@ -1,5 +1,4 @@
 import { Request, Response, NextFunction } from "express";
-import passport from "passport";
 import User from "../Models/user";
 
 //Display Controller functions
@@ -93,14 +92,14 @@ export function PostRegisterController(
       if (err.name == "UserExistsError") {
         console.error("Error: User Already Exists");
       }
-      //req.flash("registerMessage", "Registration Error");
+      req.flash("registerMessage", "Registration Error");
 
       return res.redirect("/register");
     }
 
-    //after successful registration - login the user
+    // after successful registration - login the user
     return passport.authenticate("local")(req, res, () => {
-      return res.redirect("/contacts-list");
+      return res.redirect("/clothing-list");
     });
   });
 }

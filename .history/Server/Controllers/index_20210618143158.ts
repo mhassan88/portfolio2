@@ -1,5 +1,4 @@
 import { Request, Response, NextFunction } from "express";
-import passport from "passport";
 import User from "../Models/user";
 
 //Display Controller functions

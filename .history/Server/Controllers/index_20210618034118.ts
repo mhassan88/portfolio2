@@ -1,5 +1,4 @@
 import { Request, Response, NextFunction } from "express";
-import passport from "passport";
 import User from "../Models/user";
 
 //Display Controller functions
@@ -87,7 +86,7 @@ export function PostRegisterController(
     displayName: req.body.FirstName + " " + req.body.LastName,
   });
 
-  User.register(newUser, req.body.password, (err) => {
+  User.create(newUser, req.body.password, (err) => {
     if (err) {
       console.error("Error: Inserting New User");
       if (err.name == "UserExistsError") {
@@ -98,9 +97,9 @@ export function PostRegisterController(
       return res.redirect("/register");
     }
 
-    //after successful registration - login the user
-    return passport.authenticate("local")(req, res, () => {
-      return res.redirect("/contacts-list");
-    });
-  });
+    // after successful registration - login the user
+  //   return passport.authenticate("local")(req, res, () => {
+  //     return res.redirect("/clothing-list");
+  //   });
+  // });
 }
