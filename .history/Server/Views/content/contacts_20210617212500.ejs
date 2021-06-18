@@ -1,0 +1,21 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email Address</th>
+      <th scope="col">Contact No</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%for (let count = 0; count< contactList.length;count++){%>
+    <tr>
+      <th scope="row"><%= count+1 %></th>
+      <td><%= contactList[count].contactName %></td>
+      <td><%= contactList[count].emailAddress %></td>
+      <td><%= contactList[count].phone %></td>
+      <button class="btn btn-primary"></button>
+    </tr>
+    <%}%>
+  </tbody>
+</table>

@@ -22,8 +22,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importStar(require("mongoose"));
 const Schema = mongoose_1.default.Schema;
 const contact = new Schema({
-    firstName: String,
-    lastName: String,
+    contactName: String,
+    phone: String,
     emailAddress: String,
 }, {
     collection: "contacts",

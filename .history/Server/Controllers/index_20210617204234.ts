@@ -1,6 +1,5 @@
 import { Request, Response, NextFunction } from "express";
 import User from "../Models/user";
-import Contact from "../Models/contacts";
 
 //Display Controller functions
 export function DisplayHomePage(
@@ -52,23 +51,11 @@ export function PostMessageController(
   let phone: string = req.body.phone;
   let message: string = req.body.message;
 }
-export function DisplayContactListPage(
+export function DisplayTestPage(
   req: Request,
   res: Response,
   next: NextFunction
 ) {
-  Contact.find((err, contacts) => {
-    if (err) {
-      console.error("Error occurred");
-      res.end(err);
-    }
-    res.render("index", {
-      title: "Contacts List",
-      page: "contacts",
-      contactList: contacts,
-    });
-  });
-
   // let newContact = new User({
   //   name: "Muhammad Hassan",
   //   email: "m.hassan.88@outlook.com",

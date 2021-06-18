@@ -62,11 +62,7 @@ export function DisplayContactListPage(
       console.error("Error occurred");
       res.end(err);
     }
-    res.render("index", {
-      title: "Contacts List",
-      page: "contacts",
-      contactList: contacts,
-    });
+    res.render("index", { title: "Contacts List", page: "contacts" });
   });
 
   // let newContact = new User({

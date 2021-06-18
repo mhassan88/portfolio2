@@ -1,5 +1,4 @@
 import { Request, Response, NextFunction } from "express";
-import User from "../Models/user";
 import Contact from "../Models/contacts";
 
 //Display Controller functions

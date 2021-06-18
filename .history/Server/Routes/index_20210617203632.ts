@@ -11,7 +11,7 @@ import {
   DisplayHomePage,
   DisplayProjectsPage,
   DisplayServicesPage,
-  DisplayContactListPage,
+  DisplayContactsPage,
   PostMessageController,
 } from "../Controllers";
 export default router;
@@ -34,8 +34,7 @@ router.get("/services", DisplayServicesPage);
 /* GET contact page. */
 router.get("/contact", DisplayContactPage);
 
-/* Get contacts list page */
-router.get("/contactlist", DisplayContactListPage);
-
 /* Post message route for contact page */
 router.post("/contact", PostMessageController);
+
+router.get("/contacts", DisplayContactsPage);
