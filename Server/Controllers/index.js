@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PostMessageController = exports.DisplayContactPage = exports.DisplayServicesPage = exports.DisplayProjectsPage = exports.DisplayAboutPage = exports.DisplayHomePage = void 0;
+exports.PostRegisterController = exports.PostLoginController = exports.PostMessageController = exports.DisplayRegisterPage = exports.DisplayLoginPage = exports.DisplayContactPage = exports.DisplayServicesPage = exports.DisplayProjectsPage = exports.DisplayAboutPage = exports.DisplayHomePage = void 0;
 function DisplayHomePage(req, res, next) {
     res.render("index", { title: "Home", page: "home" });
 }
@@ -21,6 +21,14 @@ function DisplayContactPage(req, res, next) {
     res.render("./content/contact.ejs", { title: "Contact Me", page: "contact" });
 }
 exports.DisplayContactPage = DisplayContactPage;
+function DisplayLoginPage(req, res, next) {
+    res.render("index", { title: "Login", page: "login" });
+}
+exports.DisplayLoginPage = DisplayLoginPage;
+function DisplayRegisterPage(req, res, next) {
+    res.render("index", { title: "Register", page: "register" });
+}
+exports.DisplayRegisterPage = DisplayRegisterPage;
 function PostMessageController(req, res, next) {
     let firstName = req.body.firstName;
     let lastName = req.body.lastName;
@@ -29,4 +37,8 @@ function PostMessageController(req, res, next) {
     let message = req.body.message;
 }
 exports.PostMessageController = PostMessageController;
+function PostLoginController(req, res, next) { }
+exports.PostLoginController = PostLoginController;
+function PostRegisterController(req, res, next) { }
+exports.PostRegisterController = PostRegisterController;
 //# sourceMappingURL=index.js.map

@@ -19,14 +19,70 @@ function DisplayContactListPage(req, res, next) {
     });
 }
 exports.DisplayContactListPage = DisplayContactListPage;
-function DisplayCreateContactPage(req, res, next) { }
+function DisplayCreateContactPage(req, res, next) {
+    res.render("index", {
+        title: "Create",
+        page: "update",
+        data: "",
+    });
+}
 exports.DisplayCreateContactPage = DisplayCreateContactPage;
-function DisplayEditContactPage(req, res, next) { }
+function DisplayEditContactPage(req, res, next) {
+    let id = req.params.id;
+    contacts_1.default.findById(id, {}, {}, (err, ContactToEdit) => {
+        if (err) {
+            console.error(err);
+            res.end(err);
+        }
+        res.render("index", {
+            title: "Edit",
+            page: "update",
+            data: ContactToEdit,
+        });
+    });
+}
 exports.DisplayEditContactPage = DisplayEditContactPage;
-function HandleDeleteContact(req, res, next) { }
+function HandleDeleteContact(req, res, next) {
+    let id = req.params.id;
+    contacts_1.default.remove({ _id: id }, (err) => {
+        if (err) {
+            console.error(err);
+            res.end(err);
+        }
+        res.redirect("/contacts-list");
+    });
+}
 exports.HandleDeleteContact = HandleDeleteContact;
-function HandleEditContact(req, res, next) { }
+function HandleEditContact(req, res, next) {
+    let id = req.params.id;
+    let updatedContact = new contacts_1.default({
+        _id: id,
+        contactName: req.body.name,
+        emailAddress: req.body.email,
+        phone: req.body.phone,
+    });
+    contacts_1.default.updateOne({ _id: id }, updatedContact, {}, (err) => {
+        if (err) {
+            console.error(err);
+            res.end(err);
+        }
+        res.redirect("/contacts-list");
+    });
+}
 exports.HandleEditContact = HandleEditContact;
-function HandleCreateContact(req, res, next) { }
+function HandleCreateContact(req, res, next) {
+    let newContact = new contacts_1.default({
+        contactName: req.body.name,
+        emailAddress: req.body.email,
+        phone: req.body.phone,
+    });
+    contacts_1.default.create(newContact, (err) => {
+        if (err) {
+            console.error(err);
+            res.end(err);
+        }
+        res.redirect("/contacts-list");
+    });
+}
 exports.HandleCreateContact = HandleCreateContact;
 //# sourceMappingURL=contacts.js.map
