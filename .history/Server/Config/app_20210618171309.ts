@@ -61,15 +61,15 @@ app.use(
     resave: false,
   })
 );
-app.use(flash());
-app.use(passport.initialize());
-app.use(passport.session());
-// implement an Auth Strategy - "local" - username / password
-passport.use(User.createStrategy());
+// app.use(flash);
+// app.use(passport.initialize());
+// app.use(passport.session());
+// // implement an Auth Strategy - "local" - username / password
+// passport.use(User.createStrategy());
 
-// serialize and deserialize the user data
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+// // serialize and deserialize the user data
+// passport.serializeUser(User.serializeUser());
+// passport.deserializeUser(User.deserializeUser());
 
 app.use("/", indexRouter);
 app.use("/contacts-list", contactsRouter);

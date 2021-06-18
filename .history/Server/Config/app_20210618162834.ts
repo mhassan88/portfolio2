@@ -19,8 +19,7 @@ import passportLocal from "passport-local";
 import cors from "cors";
 // module for authentication or error messages
 import flash from "connect-flash";
-let localStrategy = passportLocal.Strategy; // alias for localStrategy
-import User from "../Models/user";
+
 // Express Web App Configuration
 const app = express();
 export default app; // exports app as the default Object for this module
@@ -52,24 +51,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "../../Client")));
 app.use(express.static(path.join(__dirname, "../../node_modules")));
 
-app.use(cors()); // cors support
 // setting up authentication using passport
-app.use(
-  session({
-    secret: DBConfig.mySecret,
-    saveUninitialized: false,
-    resave: false,
-  })
-);
-app.use(flash());
-app.use(passport.initialize());
-app.use(passport.session());
-// implement an Auth Strategy - "local" - username / password
-passport.use(User.createStrategy());
-
-// serialize and deserialize the user data
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+let localStrategy = passportLocal.Strategy;
 
 app.use("/", indexRouter);
 app.use("/contacts-list", contactsRouter);

@@ -30,6 +30,13 @@ const morgan_1 = __importDefault(require("morgan"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const index_1 = __importDefault(require("../Routes/index"));
 const contacts_1 = __importDefault(require("../Routes/contacts"));
+const express_session_1 = __importDefault(require("express-session"));
+const passport_1 = __importDefault(require("passport"));
+const passport_local_1 = __importDefault(require("passport-local"));
+const cors_1 = __importDefault(require("cors"));
+const connect_flash_1 = __importDefault(require("connect-flash"));
+let localStrategy = passport_local_1.default.Strategy;
+const user_1 = __importDefault(require("../Models/user"));
 const app = express_1.default();
 exports.default = app;
 const DBConfig = __importStar(require("./db"));
@@ -52,6 +59,18 @@ app.use(express_1.default.urlencoded({ extended: false }));
 app.use(cookie_parser_1.default());
 app.use(express_1.default.static(path_1.default.join(__dirname, "../../Client")));
 app.use(express_1.default.static(path_1.default.join(__dirname, "../../node_modules")));
+app.use(cors_1.default());
+app.use(express_session_1.default({
+    secret: DBConfig.mySecret,
+    saveUninitialized: false,
+    resave: false,
+}));
+app.use(connect_flash_1.default());
+app.use(passport_1.default.initialize());
+app.use(passport_1.default.session());
+passport_1.default.use(user_1.default.createStrategy());
+passport_1.default.serializeUser(user_1.default.serializeUser());
+passport_1.default.deserializeUser(user_1.default.deserializeUser());
 app.use("/", index_1.default);
 app.use("/contacts-list", contacts_1.default);
 app.use(function (req, res, next) {
