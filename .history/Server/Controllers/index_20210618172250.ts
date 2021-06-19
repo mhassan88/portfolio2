@@ -73,31 +73,7 @@ export function PostLoginController(
   req: Request,
   res: Response,
   next: NextFunction
-) {
-  passport.authenticate("local", (err, user, info) => {
-    // are there any server errors?
-    if (err) {
-      console.error(err);
-      return next(err);
-    }
-
-    // are there any login errors?
-    if (!user) {
-      req.flash("loginMessage", "Authentication Error");
-      return res.redirect("/login");
-    }
-
-    req.login(user, (err) => {
-      // are there db errors?
-      if (err) {
-        console.error(err);
-        return next(err);
-      }
-
-      return res.redirect("/contacts-list");
-    });
-  })(req, res, next);
-}
+) {}
 
 export function PostRegisterController(
   req: Request,

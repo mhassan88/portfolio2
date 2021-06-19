@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PostRegisterController = exports.PostLoginController = exports.PostMessageController = exports.DisplayRegisterPage = exports.DisplayLoginPage = exports.DisplayContactPage = exports.DisplayServicesPage = exports.DisplayProjectsPage = exports.DisplayAboutPage = exports.DisplayHomePage = void 0;
+exports.LogoutController = exports.PostRegisterController = exports.PostLoginController = exports.PostMessageController = exports.DisplayRegisterPage = exports.DisplayLoginPage = exports.DisplayContactPage = exports.DisplayServicesPage = exports.DisplayProjectsPage = exports.DisplayAboutPage = exports.DisplayHomePage = void 0;
 const passport_1 = __importDefault(require("passport"));
 const user_1 = __importDefault(require("../Models/user"));
 function DisplayHomePage(req, res, next) {
@@ -42,7 +42,25 @@ function PostMessageController(req, res, next) {
     let message = req.body.message;
 }
 exports.PostMessageController = PostMessageController;
-function PostLoginController(req, res, next) { }
+function PostLoginController(req, res, next) {
+    passport_1.default.authenticate("local", (err, user, info) => {
+        if (err) {
+            console.error(err);
+            return next(err);
+        }
+        if (!user) {
+            req.flash("loginMessage", "Authentication Error");
+            return res.redirect("/login");
+        }
+        req.login(user, (err) => {
+            if (err) {
+                console.error(err);
+                return next(err);
+            }
+            return res.redirect("/contacts-list");
+        });
+    })(req, res, next);
+}
 exports.PostLoginController = PostLoginController;
 function PostRegisterController(req, res, next) {
     let newUser = new user_1.default({
@@ -64,4 +82,9 @@ function PostRegisterController(req, res, next) {
     });
 }
 exports.PostRegisterController = PostRegisterController;
+function LogoutController(req, res, next) {
+    req.logout();
+    res.redirect("/login");
+}
+exports.LogoutController = LogoutController;
 //# sourceMappingURL=index.js.map

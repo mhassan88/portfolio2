@@ -18,4 +18,5 @@ router.get("/login", Controllers_1.DisplayLoginPage);
 router.get("/register", Controllers_1.DisplayRegisterPage);
 router.post("/login", Controllers_1.PostLoginController);
 router.post("/register", Controllers_1.PostRegisterController);
+router.get("/logout", Controllers_1.LogoutController);
 //# sourceMappingURL=index.js.map
