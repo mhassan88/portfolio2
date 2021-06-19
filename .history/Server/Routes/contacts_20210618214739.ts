@@ -16,16 +16,16 @@ export default router;
 router.get("/", DisplayContactListPage);
 
 /* Get /contacts-list/create page */
-router.get("/create", AuthGuard, DisplayCreateContactPage);
+router.get("/create", DisplayCreateContactPage);
 
 /* Get /contacts-list/edit page */
-router.get("/edit/:id", AuthGuard, DisplayEditContactPage);
+router.get("/edit/:id", DisplayEditContactPage);
 
 /* Get /contacts-list/delete */
-router.get("/delete/:id", AuthGuard, HandleDeleteContact);
+router.get("/delete/:id", HandleDeleteContact);
 
 /* Post /contacts-list/create page */
-router.post("/create", AuthGuard, HandleCreateContact);
+router.post("/create", HandleCreateContact);
 
 /* Post /contacts-list/edit page */
-router.post("/edit/:id", AuthGuard, HandleEditContact);
+router.post("/edit/:id", HandleEditContact);
