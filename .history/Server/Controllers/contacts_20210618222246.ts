@@ -13,15 +13,7 @@ export function DisplayContactListPage(
       console.error("Error occurred");
       res.end(err);
     }
-    contacts = contacts.sort((a, b) => {
-      if (a.contactName < b.contactName) {
-        return -1;
-      }
-      if (a.contactName > b.contactName) {
-        return 1;
-      }
-      return 0;
-    });
+    contacts = contacts.sort();
     res.render("index", {
       title: "List of Contacts",
       page: "contacts",

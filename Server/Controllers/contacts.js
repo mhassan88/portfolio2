@@ -12,6 +12,15 @@ function DisplayContactListPage(req, res, next) {
             console.error("Error occurred");
             res.end(err);
         }
+        contacts = contacts.sort((a, b) => {
+            if (a.contactName < b.contactName) {
+                return -1;
+            }
+            if (a.contactName > b.contactName) {
+                return 1;
+            }
+            return 0;
+        });
         res.render("index", {
             title: "List of Contacts",
             page: "contacts",

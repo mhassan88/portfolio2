@@ -13,15 +13,6 @@ export function DisplayContactListPage(
       console.error("Error occurred");
       res.end(err);
     }
-    contacts = contacts.sort((a, b) => {
-      if (a.contactName < b.contactName) {
-        return -1;
-      }
-      if (a.contactName > b.contactName) {
-        return 1;
-      }
-      return 0;
-    });
     res.render("index", {
       title: "List of Contacts",
       page: "contacts",
@@ -40,7 +31,6 @@ export function DisplayCreateContactPage(
   res.render("index", {
     title: "Create",
     page: "update",
-    data: "",
     displayName: UserDisplayName(req),
   });
 }
@@ -67,7 +57,6 @@ export function DisplayEditContactPage(
     res.render("index", {
       title: "Edit",
       page: "update",
-      data: ContactToEdit,
       displayName: UserDisplayName(req),
     });
   });

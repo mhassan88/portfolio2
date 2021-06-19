@@ -14,13 +14,7 @@ export function DisplayContactListPage(
       res.end(err);
     }
     contacts = contacts.sort((a, b) => {
-      if (a.contactName < b.contactName) {
-        return -1;
-      }
-      if (a.contactName > b.contactName) {
-        return 1;
-      }
-      return 0;
+      return a.contactName - b.contactName;
     });
     res.render("index", {
       title: "List of Contacts",
