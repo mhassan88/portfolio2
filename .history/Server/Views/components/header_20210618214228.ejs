@@ -32,12 +32,11 @@
           </li>
 
           <% if(displayName) { %>
-          
-          <li class="nav-item">
-            <a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt fa-lg"></i> Logout</a>
-          </li>
           <li class="nav-item">
             <a class="nav-link" href=""> <%=displayName%></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt fa-lg"></i> Logout</a>
           </li>
           <% } else { %>
           <li class="nav-item">

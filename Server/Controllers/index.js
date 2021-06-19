@@ -48,12 +48,15 @@ function DisplayContactPage(req, res, next) {
 }
 exports.DisplayContactPage = DisplayContactPage;
 function DisplayLoginPage(req, res, next) {
-    res.render("index", {
-        title: "Login",
-        page: "login",
-        messages: req.flash("loginMessage"),
-        displayName: Utils_1.UserDisplayName(req),
-    });
+    if (!req.user) {
+        return res.render("index", {
+            title: "Login",
+            page: "login",
+            messages: req.flash("loginMessage"),
+            displayName: Utils_1.UserDisplayName(req),
+        });
+    }
+    return res.redirect("/contacts-list");
 }
 exports.DisplayLoginPage = DisplayLoginPage;
 function DisplayRegisterPage(req, res, next) {

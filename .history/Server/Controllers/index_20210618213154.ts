@@ -67,7 +67,7 @@ export function DisplayLoginPage(
   next: NextFunction
 ) {
   if (!req.user) {
-    return res.render("index", {
+    res.render("index", {
       title: "Login",
       page: "login",
       messages: req.flash("loginMessage"),
