@@ -1,9 +1,3 @@
-/*    index.ts
-      Name: Muhammad Hassan 
-      ID: 301178235
-      Date: 18 June 2021
-      */
-
 import { Request, Response, NextFunction } from "express";
 import Contact from "../Models/contacts";
 import { UserDisplayName } from "../Utils";

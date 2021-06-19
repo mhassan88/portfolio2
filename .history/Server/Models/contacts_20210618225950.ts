@@ -1,4 +1,4 @@
-/*    contacts.ts
+/*    index.ts
       Name: Muhammad Hassan 
       ID: 301178235
       Date: 18 June 2021
