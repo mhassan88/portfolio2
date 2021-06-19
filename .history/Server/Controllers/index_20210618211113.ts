@@ -148,7 +148,7 @@ export function PostRegisterController(
       if (err.name == "UserExistsError") {
         console.error("Error: User Already Exists");
       }
-      req.flash("registerMessage", "Registration Error");
+      //req.flash("registerMessage", "Registration Error");
 
       return res.redirect("/register");
     }

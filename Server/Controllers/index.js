@@ -6,32 +6,63 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.LogoutController = exports.PostRegisterController = exports.PostLoginController = exports.PostMessageController = exports.DisplayRegisterPage = exports.DisplayLoginPage = exports.DisplayContactPage = exports.DisplayServicesPage = exports.DisplayProjectsPage = exports.DisplayAboutPage = exports.DisplayHomePage = void 0;
 const passport_1 = __importDefault(require("passport"));
 const user_1 = __importDefault(require("../Models/user"));
+const Utils_1 = require("../Utils");
 function DisplayHomePage(req, res, next) {
-    res.render("index", { title: "Home", page: "home" });
+    res.render("index", {
+        title: "Home",
+        page: "home",
+        displayName: Utils_1.UserDisplayName(req),
+    });
 }
 exports.DisplayHomePage = DisplayHomePage;
 function DisplayAboutPage(req, res, next) {
-    res.render("index", { title: "About Me", page: "about" });
+    res.render("index", {
+        title: "About Me",
+        page: "about",
+        displayName: Utils_1.UserDisplayName(req),
+    });
 }
 exports.DisplayAboutPage = DisplayAboutPage;
 function DisplayProjectsPage(req, res, next) {
-    res.render("index", { title: "My Projects", page: "projects" });
+    res.render("index", {
+        title: "My Projects",
+        page: "projects",
+        displayName: Utils_1.UserDisplayName(req),
+    });
 }
 exports.DisplayProjectsPage = DisplayProjectsPage;
 function DisplayServicesPage(req, res, next) {
-    res.render("index", { title: "My Services", page: "services" });
+    res.render("index", {
+        title: "My Services",
+        page: "services",
+        displayName: Utils_1.UserDisplayName(req),
+    });
 }
 exports.DisplayServicesPage = DisplayServicesPage;
 function DisplayContactPage(req, res, next) {
-    res.render("./content/contact.ejs", { title: "Contact Me", page: "contact" });
+    res.render("./content/contact.ejs", {
+        title: "Contact Me",
+        page: "contact",
+        displayName: Utils_1.UserDisplayName(req),
+    });
 }
 exports.DisplayContactPage = DisplayContactPage;
 function DisplayLoginPage(req, res, next) {
-    res.render("index", { title: "Login", page: "login" });
+    res.render("index", {
+        title: "Login",
+        page: "login",
+        messages: req.flash("loginMessage"),
+        displayName: Utils_1.UserDisplayName(req),
+    });
 }
 exports.DisplayLoginPage = DisplayLoginPage;
 function DisplayRegisterPage(req, res, next) {
-    res.render("index", { title: "Register", page: "register" });
+    res.render("index", {
+        title: "Register",
+        page: "register",
+        messages: req.flash("registerMessage"),
+        displayName: Utils_1.UserDisplayName(req),
+    });
 }
 exports.DisplayRegisterPage = DisplayRegisterPage;
 function PostMessageController(req, res, next) {
@@ -74,6 +105,7 @@ function PostRegisterController(req, res, next) {
             if (err.name == "UserExistsError") {
                 console.error("Error: User Already Exists");
             }
+            req.flash("registerMessage", "Registration Error");
             return res.redirect("/register");
         }
         return passport_1.default.authenticate("local")(req, res, () => {

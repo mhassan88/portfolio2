@@ -69,7 +69,7 @@ export function DisplayLoginPage(
   res.render("index", {
     title: "Login",
     page: "login",
-    messages: req.flash("loginMessage"),
+    messages: req.flash("registerMessage"),
     displayName: UserDisplayName(req),
   });
 }
@@ -148,7 +148,7 @@ export function PostRegisterController(
       if (err.name == "UserExistsError") {
         console.error("Error: User Already Exists");
       }
-      req.flash("registerMessage", "Registration Error");
+      //req.flash("registerMessage", "Registration Error");
 
       return res.redirect("/register");
     }

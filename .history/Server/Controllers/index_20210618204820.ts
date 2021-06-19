@@ -32,33 +32,21 @@ export function DisplayProjectsPage(
   res: Response,
   next: NextFunction
 ) {
-  res.render("index", {
-    title: "My Projects",
-    page: "projects",
-    displayName: UserDisplayName(req),
-  });
+  res.render("index", { title: "My Projects", page: "projects" });
 }
 export function DisplayServicesPage(
   req: Request,
   res: Response,
-  next: NextFunction
+  next: NextFunction, displayName: UserDisplayName(req)
 ) {
-  res.render("index", {
-    title: "My Services",
-    page: "services",
-    displayName: UserDisplayName(req),
-  });
+  res.render("index", { title: "My Services", page: "services" });
 }
 export function DisplayContactPage(
   req: Request,
   res: Response,
   next: NextFunction
 ) {
-  res.render("./content/contact.ejs", {
-    title: "Contact Me",
-    page: "contact",
-    displayName: UserDisplayName(req),
-  });
+  res.render("./content/contact.ejs", { title: "Contact Me", page: "contact" });
 }
 
 export function DisplayLoginPage(
@@ -69,8 +57,7 @@ export function DisplayLoginPage(
   res.render("index", {
     title: "Login",
     page: "login",
-    messages: req.flash("loginMessage"),
-    displayName: UserDisplayName(req),
+    messages: req.flash("registerMessage"),
   });
 }
 
@@ -83,7 +70,6 @@ export function DisplayRegisterPage(
     title: "Register",
     page: "register",
     messages: req.flash("registerMessage"),
-    displayName: UserDisplayName(req),
   });
 }
 
@@ -148,7 +134,7 @@ export function PostRegisterController(
       if (err.name == "UserExistsError") {
         console.error("Error: User Already Exists");
       }
-      req.flash("registerMessage", "Registration Error");
+      //req.flash("registerMessage", "Registration Error");
 
       return res.redirect("/register");
     }

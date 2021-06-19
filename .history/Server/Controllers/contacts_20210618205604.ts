@@ -1,6 +1,5 @@
 import { Request, Response, NextFunction } from "express";
 import Contact from "../Models/contacts";
-import { UserDisplayName } from "../Utils";
 
 //Display contact list page (Read in CRUD)
 export function DisplayContactListPage(
@@ -59,7 +58,7 @@ export function DisplayEditContactPage(
       title: "Edit",
       page: "update",
       data: ContactToEdit,
-      displayName: UserDisplayName(req),
+      // displayName: UserDisplayName(req),
     });
   });
 }
